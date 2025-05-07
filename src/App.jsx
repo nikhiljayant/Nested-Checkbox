@@ -1,4 +1,7 @@
-import React from "react"
+import React from "react";
+
+// Components
+import Checkboxes from "./components/Checkboxes";
 
 const data = [
   {
@@ -20,10 +23,10 @@ const data = [
           {
             id: 5,
             name: "Grape",
-          }
-        ]
-      }
-    ]
+          },
+        ],
+      },
+    ],
   },
   {
     id: 6,
@@ -40,18 +43,15 @@ const data = [
           {
             id: 9,
             name: "Raspberry",
-          }
-        ]
-      }
-    ]
-  }
-]
+          },
+        ],
+      },
+    ],
+  },
+];
 
 function App() {
-
-  return (
-    <h1 className='text-pink-500'>Hello World!</h1>
-  )
+  return <Checkboxes data={data} />;
 }
 
-export default App
+export default App;
