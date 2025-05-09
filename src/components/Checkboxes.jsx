@@ -1,6 +1,7 @@
 import React from "react";
 
 const Checkboxes = ({ data = [] }) => {
+  console.log(data);
   return (
     <div className="flex flex-col gap-[10px]">
       {data?.length > 0 &&
