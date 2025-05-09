@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Components
 import Checkboxes from "./components/Checkboxes";
@@ -51,7 +51,8 @@ const data = [
 ];
 
 function App() {
-  return <Checkboxes data={data} />;
+  const [checked, setChecked] = useState({});
+  return <Checkboxes data={data} checked={checked} setChecked={setChecked} />;
 }
 
 export default App;
