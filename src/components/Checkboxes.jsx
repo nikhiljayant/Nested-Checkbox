@@ -5,7 +5,7 @@ const Checkboxes = ({ data = [], checked = {}, setChecked = () => {} }) => {
     setChecked((prev) => {
       const updatedState = { ...prev, [node?.id]: isChecked };
 
-      // If Parent is checked then all the corresponding childrens should also get checked
+      // If Parent is checked or unchecked then all the corresponding childrens should also follow the same
       const handleChildrens = (node) => {
         if (node?.children) {
           node?.children?.forEach((child) => {

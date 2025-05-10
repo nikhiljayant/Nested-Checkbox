@@ -23,6 +23,12 @@ const data = [
           {
             id: 5,
             name: "Grape",
+            children: [
+              {
+                id: 10,
+                name: "Berry",
+              },
+            ],
           },
         ],
       },
