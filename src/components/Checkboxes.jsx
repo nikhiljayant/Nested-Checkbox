@@ -74,22 +74,28 @@ const Checkboxes = ({ data = [], checked = {}, setChecked = () => {} }) => {
       // If all the Childrens are Checked or Unchecked of a Parent, then Parent should also follow the same (Bottom to Top Approach)
       // *NOTE : PARTIALLY DONE*
       const verifyChecked = (node) => {
-        // If no Childrens
-        if (!node.children) {
+        // If it's a leaf node
+        if (!node.children || node.children.length === 0) {
           return updatedState[node.id] || false;
         }
 
-        // Will Return TRUE or FALSE
-        const areAllChildrensChecked = node.children.every((child) =>
+        // Check if all children are checked
+        const areAllChildrenChecked = node.children.every((child) =>
           verifyChecked(child)
         );
 
-        updatedState[node.id] = areAllChildrensChecked;
+        // console.log(`Node ${node?.name} is marked as`, areAllChildrenChecked);
 
-        return areAllChildrensChecked;
+        updatedState[node.id] = areAllChildrenChecked;
+
+        return areAllChildrenChecked;
       };
-      // Call the function for every node to check if all the childrens are checked or not
-      checkboxesData.forEach((node) => verifyChecked(node));
+
+      // Apply the check to all top-level nodes
+      checkboxesData.forEach((node) => {
+        verifyChecked(node);
+        console.log(node);
+      });
 
       return updatedState;
     });
